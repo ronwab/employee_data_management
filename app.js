@@ -31,3 +31,24 @@ $("#add-user").on("click", function(event) {
   // Don't forget to provide initial data to your Firebase database.
 
 });
+
+db.ref().on("child_added", function(childSnapshot) {
+
+  // Log everything that's coming out of snapshot
+  console.log(childSnapshot.val().name);
+  console.log(childSnapshot.val().position);
+  console.log(childSnapshot.val().date);
+  console.log(childSnapshot.val().wage);
+
+  // full list of items to the well
+  $("#full-member-list").append("<div class='well'><span class='employee-name'> " +
+    childSnapshot.val().name +
+    " </span><span class='employee-email'> " + childSnapshot.val().position +
+    " </span><span class='employee-age'> " + childSnapshot.val().date +
+    " </span><span class='employee-comment'> " + childSnapshot.val().wage +
+    " </span></div>");
+
+  // Handle the errors
+}, function(errorObject) {
+  console.log("Errors handled: " + errorObject.code);
+});
