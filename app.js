@@ -14,3 +14,20 @@
 // var database = ...
 var db = firebase.database();
 
+$("#add-user").on("click", function(event) {
+  // Don't refresh the page!
+  event.preventDefault();
+
+  // YOUR TASK!!!
+
+  // Code in the logic for storing and retrieving the most recent user.
+  db.ref().push({
+    name: $('#name-input').val(),
+    position: $('#position-input').val(),
+    date: $('#date-input').val(),
+    wage: $('#wage-input').val(),
+
+  });
+  // Don't forget to provide initial data to your Firebase database.
+
+});
