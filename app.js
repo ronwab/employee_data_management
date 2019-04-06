@@ -41,14 +41,17 @@ db.ref().on("child_added", function(childSnapshot) {
   console.log(childSnapshot.val().wage);
 
   // full list of items to the well
-  $("#full-member-list").append("<div class='well'><span class='employee-name'> " +
-    childSnapshot.val().name +
-    " </span><span class='employee-email'> " + childSnapshot.val().position +
-    " </span><span class='employee-age'> " + childSnapshot.val().date +
-    " </span><span class='employee-comment'> " + childSnapshot.val().wage +
+  $("#full-member-list").append(
+    "<div class='well'>Name:<span class='employee-name'> " + childSnapshot.val().name,
+    " </span>Position:<span class='employee-position'> " + childSnapshot.val().position,
+    " </span>Date:<span class='employee-date'> " + childSnapshot.val().date,
+    " </span>Wage:<span class='employee-wage'> " + childSnapshot.val().wage,
     " </span></div>");
 
   // Handle the errors
 }, function(errorObject) {
   console.log("Errors handled: " + errorObject.code);
 });
+
+var empMonths = moment
+
